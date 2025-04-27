@@ -1,35 +1,74 @@
-/* Custom styles go here */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-}
-h1 {
-    text-align: center;
-    margin-top: 50px;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
 }
 
-/* Navbar styles */
-nav {
-    background-color: #333;
-}
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-nav ul li {
-    float: left;
-}
-nav ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-nav ul li a:hover {
+header {
+    position: relative;
+    padding: 20px;
     background-color: #111;
+    color: #fff;
+    text-align: center;
+}
+
+.menu-toggle {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #fff;
+}
+
+nav {
+    position: fixed;
+    left: -220px;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #222;
+    overflow-x: hidden;
+    transition: left 0.3s ease;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+nav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: #575757;
+}
+
+nav.active {
+    left: 0;
+}
+
+.content {
+    padding: 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00bfff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #111;
+    color: #fff;
 }
