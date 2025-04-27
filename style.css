@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,33 +9,35 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Hamburger Icon */
+/* Hamburger Menu */
 #menu-toggle {
   font-size: 30px;
   padding: 15px;
   cursor: pointer;
-  display: none; /* PC screen မှာဖျောက်ထားမယ် */
-  position: absolute;
+  position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 1000;
+  z-index: 1001;
+  color: #333;
 }
 
-/* Sidebar Styles */
+/* Sidebar */
 .sidebar {
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   width: 250px;
   height: 100%;
   background-color: #111;
   padding-top: 60px;
+  transform: translateX(-260px);
   transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
 .sidebar a {
   display: block;
-  padding: 15px;
+  padding: 15px 20px;
   color: white;
   text-decoration: none;
   font-size: 18px;
@@ -45,42 +47,22 @@ body {
   background-color: #575757;
 }
 
-/* Main Content */
+/* Sidebar Active */
+.sidebar.active {
+  transform: translateX(0);
+}
+
+/* Content */
 .content {
-  margin-left: 250px;
   padding: 20px;
-}
-
-/* Sidebar Hidden (Mobile) */
-.sidebar.mobile-hidden {
-  transform: translateX(-260px);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  #menu-toggle {
-    display: block;
-  }
-
-  .sidebar {
-    transform: translateX(-260px);
-  }
-
-  .sidebar.active {
-    transform: translateX(0);
-  }
-
-  .content {
-    margin-left: 0;
-    padding: 20px;
-  }
+  padding-top: 70px;
 }
 
 /* Button */
 .btn {
   display: inline-block;
+  margin-top: 20px;
   padding: 10px 20px;
-  margin-top: 15px;
   background-color: #4CAF50;
   color: white;
   text-decoration: none;
