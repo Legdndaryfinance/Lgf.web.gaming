@@ -1,74 +1,100 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
+  font-family: Arial, sans-serif;
 }
 
-header {
-    position: relative;
-    padding: 20px;
-    background-color: #111;
-    color: #fff;
-    text-align: center;
+/* Hamburger Icon */
+#menu-toggle {
+  font-size: 30px;
+  padding: 15px;
+  cursor: pointer;
+  display: none; /* PC screen မှာဖျောက်ထားမယ် */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
 }
 
-.menu-toggle {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #fff;
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #111;
+  padding-top: 60px;
+  transition: transform 0.3s ease;
 }
 
-nav {
-    position: fixed;
-    left: -220px;
-    top: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #222;
-    overflow-x: hidden;
-    transition: left 0.3s ease;
-    padding-top: 60px;
-    z-index: 1000;
+.sidebar a {
+  display: block;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
 }
 
-nav a {
-    padding: 15px 20px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #fff;
-    display: block;
-    transition: background 0.3s;
+.sidebar a:hover {
+  background-color: #575757;
 }
 
-nav a:hover {
-    background-color: #575757;
-}
-
-nav.active {
-    left: 0;
-}
-
+/* Main Content */
 .content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+/* Sidebar Hidden (Mobile) */
+.sidebar.mobile-hidden {
+  transform: translateX(-260px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-260px);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .content {
+    margin-left: 0;
     padding: 20px;
+  }
 }
 
+/* Button */
 .btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #00bfff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 15px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
+.btn:hover {
+  background-color: #45a049;
+}
+
+/* Footer */
 footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 10px;
-    background-color: #111;
-    color: #fff;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
 }
