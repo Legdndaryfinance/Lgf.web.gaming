@@ -16,9 +16,12 @@ header {
 
 /* Hamburger menu icon */
 .menu-toggle {
+/* Hamburger menu icon */
+.menu-toggle {
   font-size: 24px;
   cursor: pointer;
   margin-right: 20px;
+  z-index: 100; /* Ensure menu icon is always on top */
 }
 
 /* Sidebar hidden by default */
@@ -29,14 +32,15 @@ header {
   height: 100vh;
   position: fixed;
   top: 0;
-  left: -220px; /* Hide sidebar to the left */
+  left: -220px; /* Hide sidebar off-screen */
   padding-top: 60px;
   transition: left 0.3s ease;
+  z-index: 50; /* Make sidebar appear behind hamburger */
 }
 
 /* Sidebar visible when active */
 .sidebar.active {
-  left: 0;
+  left: 0; /* Move sidebar into view */
 }
 
 /* Sidebar link styles */
