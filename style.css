@@ -2,6 +2,9 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 /* Header styling */
@@ -11,6 +14,11 @@ header {
   padding: 15px;
   display: flex;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 /* Hamburger menu icon */
@@ -59,8 +67,9 @@ main {
   min-height: calc(100vh - 60px); /* Full height minus header */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center vertically */
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px; /* Space for the fixed header */
 }
 
 /* Main heading (centered) */
