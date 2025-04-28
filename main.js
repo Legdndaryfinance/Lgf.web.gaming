@@ -1,49 +1,63 @@
+// main.js
+
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const sidebar = document.querySelector('.sidebar');
-    const themeToggle = document.getElementById('theme-toggle');
+  // Hamburger Menu Toggle
+  const hamburger = document.querySelector('.hamburger-menu');
+  const nav = document.querySelector('nav');
+  
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
 
-    // Sidebar Toggle
-    hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-    });
-
-    // Sidebar Close when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-            sidebar.classList.remove('active');
-        }
-    });
-
-    // Sidebar Close after clicking link
-    const navLinks = document.querySelectorAll('.sidebar a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-        });
-    });
-
-    // Highlight Current Page
-    const currentPage = window.location.pathname.split("/").pop();
-    navLinks.forEach(link => {
-        if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
-        }
-    });
-
-    // Theme Toggle (Dark/Light)
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        // Save current theme
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
-        }
-    });
-
-    // Load saved theme
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+      nav.classList.remove('active');
+      hamburger.classList.remove('active');
     }
+  });
+
+  // Tokenomics Chart Code
+  const ctx = document.getElementById('tokenomicsChart')?.getContext('2d');
+  if (ctx) {
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: [
+          'Community (30%)',
+          'Liquidity (25%)',
+          'Team & Development (20%)',
+          'Airdrop (15%)',
+          'Marketing & Partner (10%)'
+        ],
+        datasets: [{
+          data: [30, 25, 20, 15, 10],
+          backgroundColor: [
+            '#00ffd5',
+            '#004e92',
+            '#7b00ff',
+            '#ff00aa',
+            '#ffee00'
+          ],
+          borderColor: '#ffffff',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#fff',
+              font: {
+                size: 14
+              }
+            }
+          }
+        }
+      }
+    });
+  }
 });
