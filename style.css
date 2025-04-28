@@ -1,50 +1,63 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-header {
-  background: #333;
-  color: white;
-  padding: 15px;
-  display: flex;
-  align-items: center;
+/* Hamburger icon styling */
+.hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
 }
 
-.menu-toggle {
-  font-size: 24px;
-  cursor: pointer;
-  margin-right: 20px;
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
 }
 
+/* Sidebar styling */
 .sidebar {
-  width: 200px;
-  background: #444;
-  color: white;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: -220px;
-  padding-top: 60px;
-  transition: left 0.3s ease;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #f5f5f5;
+    transition: 0.3s;
+    padding: 20px;
+    z-index: 999;
 }
 
 .sidebar.active {
-  left: 0;
+    left: 0;
 }
 
-.sidebar a {
-  display: block;
-  padding: 15px;
-  color: white;
-  text-decoration: none;
+.sidebar ul {
+    list-style: none;
+    margin-top: 50px;
 }
 
-.sidebar a:hover {
-  background: #555;
+.sidebar ul li {
+    margin: 15px 0;
 }
 
-main {
-  margin-left: 20px;
-  padding: 20px;
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Content area */
+.content {
+    margin-left: 0;
+    padding: 20px;
+    transition: 0.3s;
 }
