@@ -1,103 +1,82 @@
-/* Reset default margins and set basic font */
-body {
+/* Reset */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Header styling */
-header {
-  background-color: #333;
-  color: white;
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Hamburger Menu */
+#menu-toggle {
+  font-size: 30px;
   padding: 15px;
-  display: flex;
-  align-items: center;
+  cursor: pointer;
   position: fixed;
-  width: 100%;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
   top: 0;
   left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #111;
+  padding-top: 60px;
+  transform: translateX(-260px);
+  transition: transform 0.3s ease;
   z-index: 1000;
 }
 
-/* Hamburger menu icon */
-.menu-toggle {
-  font-size: 24px;
-  cursor: pointer;
-  margin-right: 20px;
-}
-
-/* Sidebar hidden by default */
-.sidebar {
-  width: 200px;
-  background-color: #444;
-  color: white;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: -220px; /* Hide sidebar off-screen initially */
-  padding-top: 60px;
-  transition: left 0.3s ease;
-}
-
-/* Sidebar visible when active */
-.sidebar.active {
-  left: 0;
-}
-
-/* Sidebar link styles */
 .sidebar a {
   display: block;
-  padding: 15px;
+  padding: 15px 20px;
   color: white;
   text-decoration: none;
+  font-size: 18px;
 }
 
-/* Sidebar link hover effect */
 .sidebar a:hover {
-  background-color: #555;
+  background-color: #575757;
 }
 
-/* Main content styling */
-main {
-  margin-left: 20px;
-  margin-right: 20px;
+/* Sidebar Active */
+.sidebar.active {
+  transform: translateX(0);
+}
+
+/* Content */
+.content {
   padding: 20px;
-  min-height: calc(100vh - 60px); /* Full height minus header */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 80px; /* Space for the fixed header */
+  padding-top: 70px;
 }
 
-/* Main heading (centered) */
-main h2 {
-  font-size: 2em;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Paragraph text (left aligned) */
-main p {
-  font-size: 1.2em;
-  text-align: left;
-  max-width: 600px;
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-/* Button centered */
+/* Button */
 .btn {
+  display: inline-block;
+  margin-top: 20px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #4CAF50;
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  text-align: center;
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #45a049;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
 }
